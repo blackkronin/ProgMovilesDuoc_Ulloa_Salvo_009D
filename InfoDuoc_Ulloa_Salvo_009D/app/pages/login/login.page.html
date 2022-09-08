@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Registr APP</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <form #formulario="ngForm" (ngSubmit) ="onSubmit()">
+      <ion-card-title color="dark" id="tituloLogin">Hola! Inicia Sesión</ion-card-title>
+      <br>
+      <ion-item>
+        <ion-label position="floating">Email: </ion-label>
+        <ion-input type="email" placeholder="Escribe aquí.."
+                  name="email" value="" [(ngModel)]= "usuario.email"
+                  pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
+                  required>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contraseña: </ion-label>
+        <ion-input type="password" placeholder="Escribe aquí.."
+                  name="password" value="" [(ngModel)]= "usuario.password"
+                  required>
+        </ion-input>
+      </ion-item>
+      <ion-button expand="block" fill="clear" shape="round" routerLink="/recuperarpass">
+        Olvidaste tu contraseña?
+      </ion-button>
+      <ion-button [disabled] ="formulario.invalid"
+              type="submit" expand="block" routerLink="/inicio" color="warning">
+        Iniciar Sesión
+      </ion-button>
+    </form>
+    <ion-button expand="block" routerLink="/registrarse" color="warning">
+      Registrarse
+    </ion-button>
+    <ion-item>
+        <img src="/assets/profe login.png" alt="">
+    </ion-item>
+  </ion-card> 
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="dark">
+    <ion-title slot="start">Duoc UC</ion-title>
+  </ion-toolbar>
+</ion-footer>
